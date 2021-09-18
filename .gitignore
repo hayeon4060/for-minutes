@@ -24,3 +24,6 @@ my_settings.py
 yarn.lock
 
 *.DS_Store
+
+.testapp/migrations/
+testapp/migrations/
