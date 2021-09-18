@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 
 import { Box, Table, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
+import './Minute.css';
+import { Button } from "../../component/Button/Button";
 
 const Minute = ({
   id,
@@ -21,6 +23,7 @@ const Minute = ({
     
     <Table.Row>
       <Table.Cell>
+        <div className="minute">
       <Link
           to={{
             pathname: `/minute/${id}`,
@@ -37,7 +40,7 @@ const Minute = ({
           }}
         >
           <Text>{title}</Text>
-          </Link>
+          </Link> </div>
       </Table.Cell>
       <Table.Cell>
         <Text>{writer}</Text>

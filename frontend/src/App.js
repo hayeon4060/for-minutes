@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
-import Main from "./container/Main";
-import MinutesList from "./container/MinutesList";
-import Post from "./container/Post";
-import About from "./container/About";
-import Detail from "./container/Detail";
-import Update from "./container/Update";
-import Navigation from "./component/Navigation";
-import Footer from "./component/Footer";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Main from "./container/Main/Main";
+import MinutesList from "./container/Minute/MinutesList";
+import Post from "./container/Post/Post";
+import About from "./container/Main/About";
+import Detail from "./container/Detail/Detail";
+import Update from "./container/Post/Update";
+import Navigation from "./component/Navigation/Navigation";
+import Footer from "./component/Footer/Footer";
 
 class App extends Component {
   render() {

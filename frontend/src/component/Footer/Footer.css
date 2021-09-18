@@ -1,15 +1,17 @@
 .footer-dark {
-  padding: 80px 0;
-  color: #0a3d5f;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #ffffff;
   margin-top: auto;
 }
+
 
 .footer-dark h3 {
   margin-top: 0;
   margin-bottom: 12px;
   font-weight: bold;
   font-size: 16px;
+  color: #0a3d5f;
 }
 
 .footer-dark ul {
@@ -18,16 +20,19 @@
   line-height: 1.6;
   font-size: 14px;
   margin-bottom: 0;
+  padding-left: 11%;
 }
 
 .footer-dark ul a {
-  color: inherit;
+  /* color:inherit; */
+  color:rgb(94, 94, 94);
   text-decoration: none;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .footer-dark ul a:hover {
   opacity: 0.8;
+  color:#0a3d5f;
 }
 
 @media (max-width: 767px) {
@@ -87,4 +92,11 @@
   opacity: 0.3;
   font-size: 13px;
   margin-bottom: 0;
+}
+
+/******hr*******/
+
+hr .pl{
+  opacity: 0.5;
+  width:80%;
 }

@@ -1,8 +1,5 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 
-import Aos from "aos"; 
-import "aos/dist/aos.css";
-import "./Main.css";
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
@@ -16,19 +13,40 @@ import { useHistory } from "react-router";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
-const Post = () => {
-  const [topic, setTopic] = useState();
-  const [title, setTitle] = useState();
-  const [writer, setWriter] = useState("");
-  const [parties, setParties] = useState("");
-  const [meeting_date, setMeetingDate] = useState(undefined);
-  const [hour, setHour] = useState(new Date().getHours());
-  const [minute, setMinute] = useState(new Date().getMinutes());
-  const [file, setFile] = useState();
+const Update = (props) => {
+  const [topic, setTopic] = useState(props.location.state.topic);
+  const [title, setTitle] = useState(props.location.state.title);
+  const [writer, setWriter] = useState(props.location.state.writer);
+  const [parties, setParties] = useState(props.location.state.parties);
+  const [meeting_date, setMeetingDate] = useState();
+  const [year, setYear] = useState(
+    props.location.state.meeting_date.substring(0, 4)
+  );
+  const [month, setMonth] = useState(
+    props.location.state.meeting_date.substring(5, 7)
+  );
+  const [day, setDay] = useState(
+    props.location.state.meeting_date.substring(8, 10)
+  );
+  const [hour, setHour] = useState(
+    props.location.state.meeting_date.substring(11, 13)
+  );
+  const [minute, setMinute] = useState(
+    props.location.state.meeting_date.substring(14, 16)
+  );
+  const [file, setFile] = useState(
+    !props.location.state.file
+      ? props.location.state.file
+      : props.location.state.file.replace("media", "static")
+  );
+  const [date, setDate] = useState(props.location.state.date);
   const [image, setImage] = useState();
-  const [date, setDate] = useState(new Date());
+  const [pk, setPk] = useState(props.match.params.id);
   const history = useHistory();
 
+  useEffect(() => {
+    console.log(file);
+  });
   const createTime = () => {
     const meeting_time = [];
     for (let i = 0; i < 24; i++) {
@@ -60,6 +78,8 @@ const Post = () => {
     return new_date;
   };
 
+  //   const handleChange = (meeting_date) => meeting_date;
+
   const handleSubmit = async () => {
     let formData = new FormData();
 
@@ -68,10 +88,10 @@ const Post = () => {
     formData.append("writer", writer);
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
-    formData.append("photo", image);
     formData.append("file", file);
+    formData.append("photo", image);
     await axios
-      .post("/testapp/meeting/create", formData, {
+      .put(`/testapp/meeting/${pk}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -102,16 +122,8 @@ const Post = () => {
     const img = event.target.files[0];
     setImage(img);
   };
-
-
-  useEffect(()=>{
-    Aos.init({duration:2000});
-  },[]);
-
   return (
-    <React.Fragment>
-      <div className="grids">
-        <div className="boxes1">
+    <Fragment>
       <Box
         display="flex"
         marginStart={-3}
@@ -177,7 +189,7 @@ const Post = () => {
                 id="meeting_date"
                 label="회의 날짜"
                 onChange={({ event, value }) => setMeetingDate(value)}
-                value={date}
+                value={new Date(year, month - 1, day)}
               />
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
@@ -225,6 +237,7 @@ const Post = () => {
               onChange={imageHandler}
             />
           </Box>
+
           <Box flex="grow" paddingX={3} paddingY={3}></Box>
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
@@ -239,8 +252,8 @@ const Post = () => {
           >
             <Box paddingX={1} paddingY={1}>
               <Button
-                text="등록"
-                color="black"
+                text="완료"
+                color="blue"
                 size="lg"
                 type="submit"
                 onClick={handleSubmit}
@@ -249,10 +262,8 @@ const Post = () => {
           </Box>
         </Box>
       </Box>
-      </div>
-      </div>
-    </React.Fragment>
+    </Fragment>
   );
 };
 
-export default Post;
+export default Update;

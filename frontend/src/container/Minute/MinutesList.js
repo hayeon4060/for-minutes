@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 
-import Header from "../component/Header";
-import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
-
 import { Table, Text, Box } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
 
 import Minute from "./Minute.js";
+import './Minute.css';
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -24,12 +21,10 @@ class MinutesList extends Component {
     };
   }
   componentDidMount() {
-    this._renderMinute();
+    this.renderMinute();
   }
   render() {
     const { results } = this.state;
-    console.log("this.state:", this.state);
-    console.log("results: ", results);
 
     return (
       <div class="bg wrapper">
@@ -69,12 +64,11 @@ class MinutesList extends Component {
             </Table>
           </Box>
         </div>
-
       </div>
     );
   }
 
-  _renderMinute = async () => {
+  renderMinute = async () => {
     await axios
       .get("/testapp/meeting")
       .then((response) => {

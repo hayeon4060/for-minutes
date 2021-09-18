@@ -28,7 +28,6 @@ class ResultViewSet(viewsets.ModelViewSet):
         
         res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
         data = json.loads(res.text)
-        texts = [data['text']]
         
         # word = Krwordrank.wordrank(texts)
         

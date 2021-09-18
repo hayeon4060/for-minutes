@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Header from "../component/Header.js";
-import Footer from "../component/Footer.js";
-import "./Main.css";
-import Navigation from "../component/Navigation.js";
+import "./About.css";
+import Cards from "../Cards/Cards";
 
-import OH_1 from "../images/OH_1.jpg";
-import OH_2 from "../images/OH_2.jpg";
-import OH_3 from "../images/OH_3.PNG";
-import SA_3 from "../images/SA_3.PNG";
-import HY from "../images/HY.png";
-import JJ from "../images/JJ.jpg";
-import TL from "../images/TL.jpg";
-import SJ from "../images/SJ.jpg";
-import hy from "date-fns/locale/hy";
+import OH_1 from "../../images/OH_1.jpg";
+import OH_2 from "../../images/OH_2.jpg";
+import OH_3 from "../../images/OH_3.PNG";
+import PI_1 from "../../images/PI_1.PNG";
+import PI_2 from "../../images/PI_2.PNG";
+import PI_3 from "../../images/PI_3.PNG";
+import HY from "../../images/HY.png";
+import JJ from "../../images/JJ.jpg";
+import TL from "../../images/TL.jpg";
+import SJ from "../../images/SJ.jpg";
 
 const About = () => {
   useEffect(() => {
@@ -25,63 +24,6 @@ const About = () => {
     <div>
       <div>
         <div className="grids">
-          <div data-aos="fade-up" className="boxes">
-            <section id="nino-story">
-              <div class="container">
-                <h2 class="nino-sectionHeading">Story about us</h2>
-                <p class="nino-sectionDesc">
-                  2021 IT미디어공학과 졸업 작품 프로젝트
-                  <br />
-                  인공지능 회의 요약 서비스
-                  <br />
-                  For_Minutes{" "}
-                </p>
-                <div class="sectionContent">
-                  <div class="row nino-hoverEffect">
-                    <div class="col-md-4 col-sm-4">
-                      <div class="item">
-                        <a class="overlay" href="#">
-                          <span class="content">
-                            <i class="mdi mdi-account-multiple nino-icon"></i>
-                            super team
-                          </span>
-                          <img src={SA_3} alt="" />
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="item">
-                        <a class="overlay" href="#">
-                          <span class="content">
-                            <i class="mdi mdi-image-filter-center-focus-weak nino-icon"></i>
-                            Creativity
-                          </span>
-                          <img
-                            src="https://blog.kakaocdn.net/dn/b8pU3g/btqFOMWEtk4/DS8aILLcTv63NYCxpoZeCK/img.png"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="item">
-                        <a class="overlay" href="#">
-                          <span class="content">
-                            <i class="mdi mdi-airplay nino-icon"></i>
-                            Digital
-                          </span>
-                          <img
-                            src="https://blog.kakaocdn.net/dn/b8pU3g/btqFOMWEtk4/DS8aILLcTv63NYCxpoZeCK/img.png"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
           <div data-aos="fade-up" className="boxes">
             <section id="nino-latestBlog">
               <div class="container">
@@ -98,7 +40,7 @@ const About = () => {
                           </div>
                         </div>
                         <h3 class="articleTitle">
-                          <a href="">프로젝트 기획 발표</a>
+                          <div>프로젝트 기획 발표</div>
                         </h3>
                         <p class="articleDesc">
                           인공지능 회의 요약 서비스 'For-Minutes' 기획 <br />{" "}
@@ -109,36 +51,86 @@ const About = () => {
                     <div class="col-md-4 col-sm-4">
                       <article>
                         <div class="articleThumb">
-                        <img src={OH_2} alt="" />
+                          <img src={OH_2} alt="" />
                           <div class="date">
                             <span class="number">6</span>
                             <span class="text">May</span>
                           </div>
                         </div>
                         <h3 class="articleTitle">
-                          <a href="">프로젝트 진행 및 회의</a>
+                          <div>프로젝트 진행 및 회의</div>
                         </h3>
                         <p class="articleDesc">
-                        프로젝트의 전반적인 기반 구축과 각 담당 포지션 프로그래밍 진행
+                          프로젝트의 전반적인 기반 구축과 각 담당 포지션
+                          프로그래밍 진행
                         </p>
                       </article>
                     </div>
                     <div class="col-md-4 col-sm-4">
                       <article>
                         <div class="articleThumb">
-                        <img src={OH_3} alt="" />
+                          <img src={OH_3} alt="" />
                           <div class="date">
                             <span class="number">21</span>
                             <span class="text">June</span>
                           </div>
                         </div>
                         <h3 class="articleTitle">
-                          <a href="">캡스톤 1학기 가전시</a>
+                          <div>캡스톤 1학기 가전시</div>
                         </h3>
-                        <p class="articleDesc">
-                          프로젝트 진행 상황 발표
-                        </p>
+                        <p class="articleDesc">프로젝트 진행 상황 발표</p>
                       </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div data-aos="fade-up" className="boxes">
+            <section id="nino-story">
+              <div class="container">
+                <h2 class="nino-sectionHeading">Paticipate In</h2>
+                <p class="nino-sectionDesc">
+                  인공지능 회의 요약 서비스 "For-minutes"
+                  <br />
+                  참여 중인 프로젝트
+                </p>
+                <div class="sectionContent">
+                  <div class="row nino-hoverEffect">
+                    <div class="col-md-4 col-sm-4">
+                      <div class="item">
+                        <a class="overlay" href="#">
+                          <span class="content">
+                            <i class="mdi mdi-account-multiple nino-icon"></i>
+                            덕성여자대학교 <br />
+                            졸업 작품 프로젝트
+                          </span>
+                          <img src={PI_1} alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                      <div class="item">
+                        <a class="overlay" href="#">
+                          <span class="content">
+                            <i class="mdi mdi-image-filter-center-focus-weak nino-icon"></i>
+                            한이음 ICT 멘토링
+                          </span>
+                          <img src={PI_2} alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                      <div class="item">
+                        <a class="overlay" href="#">
+                          <span class="content">
+                            <i class="mdi mdi-airplay nino-icon"></i>
+                            공개SW 개발자대회
+                          </span>
+                          <img src={PI_3} alt="" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -158,7 +150,7 @@ const About = () => {
                       <h2 class="nino-sectionHeading">Team JDJS</h2>
                     </div>
                   </div>
-
+                  <Cards />
                   <div
                     class="wow fadeInUp col-md-3 col-sm-6"
                     data-wow-delay="0.4s"
