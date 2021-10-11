@@ -44,6 +44,7 @@ const Contact = () => {
                       className="form-control"
                       name="name"
                       placeholder="Name"
+                      required
                     />
                   </div>
                   <div className="col-md-4 col-sm-4">
@@ -52,6 +53,7 @@ const Contact = () => {
                       className="form-control"
                       name="email"
                       placeholder="Email"
+                      required
                     />
                   </div>
                   <div className="col-md-4 col-sm-4">
@@ -60,6 +62,7 @@ const Contact = () => {
                       className="form-control"
                       name="subject"
                       placeholder="Subject"
+                      required
                     />
                   </div>
                   <div class="col-md-12 col-sm-12">
@@ -68,6 +71,7 @@ const Contact = () => {
                       rows="5"
                       name="message"
                       placeholder="Message"
+                      required
                     ></textarea>
                   </div>
                   <div class="col-md-offset-9 col-md-3 col-sm-offset-3 col-sm-6">

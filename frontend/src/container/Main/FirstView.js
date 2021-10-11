@@ -10,7 +10,7 @@ function FirstView() {
     <div className="hero-container">
       <video src={FW} autoPlay loop muted />
       <h1>For-minutes</h1>
-      <p>AI Summary Service</p>
+      <p>AI Minutes Service</p>
       <div className="hero-btns">
         <Button
           className="btns"

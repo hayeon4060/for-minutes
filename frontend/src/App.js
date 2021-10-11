@@ -8,11 +8,15 @@ import Detail from "./container/Detail/Detail";
 import Update from "./container/Post/Update";
 import Navigation from "./component/Navigation/Navigation";
 import Footer from "./component/Footer/Footer";
+import ScriptUpdate from "./container/Detail/ScriptUpdate";
+
+import ScrollToTop from "./component/ScrollToTop/ScrollToTop";
 
 class App extends Component {
   render() {
     return (
       <Router>
+        <ScrollToTop />
         <Navigation />
         <Switch>
           <Route exact path="/" component={Main} />
@@ -21,6 +25,11 @@ class App extends Component {
           <Route exact path="/minutes/" component={MinutesList} />
           <Route exact path="/minute/:id/" component={Detail} />
           <Route exact path="/minute/update/:id/" component={Update} />
+          <Route
+            exact
+            path="/minute/script/update/:id/"
+            component={ScriptUpdate}
+          />
         </Switch>
         <Footer />
       </Router>

@@ -11,9 +11,16 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import "../Main/Main.css";
+import "./Result.css";
 import Modal from "../Modal/Modal";
 import PdfDownloader from "../Pdf/PdfDownloader.js";
+import { Link } from "react-router-dom";
+
+import { Button } from "gestalt";
+import "gestalt/dist/gestalt.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faPen } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   scroll: {
     overflow: "auto",
     height: "500px",
+    whitespace: "pre-wrap",
   },
 }));
 
@@ -40,6 +48,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
   const [value, setValue] = useState(0);
 
   const [modalOpen, setModalOpen] = useState(false);
+  const pen = <FontAwesomeIcon icon="fa-solid fa-pen" />;
 
   const openModal = () => {
     setModalOpen(true);
@@ -61,6 +70,10 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
     console.log(event);
     console.log(event.target);
     console.log(event.target.value);
+  };
+
+  const handleChange2 = (event) => {
+    setScript(event.target.value);
   };
 
   function a11yProps(index) {
@@ -95,7 +108,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
       .get(url)
       .then((response) => {
         setScript(response.data.script);
-        // .replace(/. /g, ".\n")/
       })
       .catch((error) => {
         if (error.response) {
@@ -121,10 +133,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
       });
   };
 
-  const handleChange2 = (event) => {
-    setScript(event.target.value);
-  };
-
   useEffect(() => {
     setUrl(`/testapp/result/${pk}`);
     setSummaryUrl(`/testapp/summary/${pk}`);
@@ -133,19 +141,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
 
   return (
     <div className={classes.root}>
-      <button onClick={openModal}>모달팝업</button>
-
-      <Modal open={modalOpen} close={closeModal} header="스크립트 수정">
-        <FormControl fullWidth>
-          <TextField
-            type="text"
-            onChange={handleChange2}
-            value={script}
-            multiline
-          />
-        </FormControl>
-      </Modal>
-
       <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -171,9 +166,19 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
-          <FormControl fullWidth>
-            <TextField onChange={handleChange2} value={script} multiline />
-          </FormControl>
+          <Link
+            className="result_pen"
+            to={{
+              pathname: `/minute/script/update/${pk}/`,
+              state: {
+                originalScript: script,
+                pk: pk,
+              },
+            }}
+          >
+            <FontAwesomeIcon icon={faPen} />
+          </Link>
+          {script}
         </TabPanel>
         <TabPanel
           value={value}
@@ -187,6 +192,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
           {summary}
         </TabPanel>
       </SwipeableViews>
+      <br />
       <PdfDownloader
         title={title}
         topic={topic}

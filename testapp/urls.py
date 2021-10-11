@@ -2,7 +2,7 @@ from django.urls import path,include
 from .api import *
 import testapp.views
 
-from .views import MeetingViewSet, ResultViewSet,Summary_ResultViewSet
+from .views import MeetingViewSet, ResultViewSet, Summary_ResultViewSet
 
 urlpatterns = [
     path('meeting', MeetingViewSet.as_view({
@@ -26,7 +26,6 @@ urlpatterns = [
     path('result/create/<int:pk>', ResultViewSet.as_view({
         'post': 'create'
     })),
-
     path('result/<int:pk>', ResultViewSet.as_view({
         'get': 'retrieve',
         'put': 'update',

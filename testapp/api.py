@@ -4,27 +4,3 @@ from .serializer import MeetingSerializer
 from .serializer import ResultSerializer
 from .serializer import Summary_ResultSerializer
 from .models import Meeting, Result, Summary_Result
-
-# class MeetingApi(generics.ListAPIView):
-#     queryset = Meeting.objects.all()
-#     serializer_class = MeetingSerializer
- 
-# class MeetingCreateApi(generics.CreateAPIView):
-#     queryset = Meeting.objects.all()
-#     serializer_class = MeetingSerializer
-
-# class MeetingUpdateApi(generics.RetrieveUpdateAPIView):
-#     queryset = Meeting.objects.all()
-#     serializer_class = MeetingSerializer
-
-# class MeetingDeleteApi(generics.DestroyAPIView):
-#     queryset = Meeting.objects.all()
-#     serializer_class = MeetingSerializer
-
-# class ResultApi(generics.ListAPIView):
-#     queryset = Result.objects.all()
-#     serializer_class = ResultSerializer
-    
-# class ResultUpdateApi(generics.RetrieveUpdateAPIView):
-#     queryset = Result.objects.all()
-#     serializer_class = ResultSerializer

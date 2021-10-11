@@ -9,7 +9,9 @@ import "./Main.css";
 
 import { Box, Heading, Table, Text, Button, Flex } from "gestalt";
 import "gestalt/dist/gestalt.css";
+
 import axios from "axios";
+
 import { useHistory } from "react-router";
 
 const Detail = (props) => {
@@ -64,7 +66,6 @@ const Detail = (props) => {
           console.log(error.response.headers);
         }
         alert("fail");
-        setLoading(true);
       });
   };
 
@@ -79,68 +80,7 @@ const Detail = (props) => {
 
   return (
     <div class="bg wrapper">
-    
-    <details>
-      <summary> 회의 정보</summary>
-    <div className="container boxes3">
-    
-        <table className="table">
-        <colgroup>
-            <col width="35%"/>
-            <col width="5%"/>
-            <col width="45%"/>
-            <col width="15%"/>
-          </colgroup>
-          <thead>
-            <tr>
-              <th scope="col">제목</th>
-              <th scope="col"></th>
-              <th scope="col">회의 안건</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            
-              <td>{title}</td>
-              <td></td>
-              <td>{topic}</td>
-              <td></td>
-            
-            
-          </tbody>
-          </table>
-
-          <table className="table">
-          <colgroup>
-            <col width="40%"/>
-            <col width="24%"/>
-            <col width="18%"/>
-            <col width="18%"/>
-          </colgroup>
-          <thead>
-            <tr>
-              <th scope="col">참여자</th>
-              <th scope="col">작성자</th>
-              <th scope="col">회의 날짜</th>
-              <th scope="col">게시일</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-              <td>{parties}</td>
-              <td>{writer}</td>
-              <td>{date}</td>
-              <td>{meeting_date}</td>
-              
-            
-          </tbody>
-        </table>
-        <img width="30%" src={image}></img>
-        
-      </div>
-    </details>
-    
-
+      <Navigation />
       <div class="main-content">
         <Box
           display="flex"
@@ -155,8 +95,6 @@ const Detail = (props) => {
           alignContent="center"
           alignSelf="center"
         >
-
-      <div className="container boxes3">
           <Box flex="grow" paddingX={3} paddingY={4} rounding={3} color="white">
             <Heading size="md" color="midnight" align="center">
               Title: {title}
@@ -252,7 +190,6 @@ const Detail = (props) => {
               <img width="50%" src={image} inline />
             </Box> */}
           </Box>
-          </div>
           <Box flex="grow" paddingX={3} paddingY={3}>
             <Box
               justifyContent="center"
@@ -282,6 +219,8 @@ const Detail = (props) => {
           </Box>
         </Box>
       </div>
+
+      <Footer />
     </div>
   );
 };

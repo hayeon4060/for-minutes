@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import '../Main/Main.css';
 /*****post input*****/
 
@@ -128,3 +129,26 @@
   background-color: #337ab7;
   border-color: #2e6da4;
 }
+=======
+@import "../Main/Main.css";
+/*****post input*****/
+
+.boxes_post {
+  background-color: #ffffff;
+  overflow: auto;
+  padding-left: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 70%;
+  margin: 0px auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.post-font {
+  font-size: 15px;
+  font-weight: 200;
+  color: white;
+  font-family: "Gowun Dodum", sans-serif;
+}
+>>>>>>> 2295ecacbeccc47d800bc256fcc2da17e319c44a

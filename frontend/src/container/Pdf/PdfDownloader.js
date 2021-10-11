@@ -1,6 +1,8 @@
 import React from "react";
+import { saveAs } from "file-saver";
+import { pdf, PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 
-import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
+import { Button } from "gestalt";
 import Pdf from "./Pdf";
 import '../Minute/Minute.css';
 
@@ -14,26 +16,29 @@ const PdfDownloader = ({
   summary,
   keyword,
 }) => {
+  const generatePdfDocument = async (documentData) => {
+    const blob = await pdf(
+      <Pdf
+        title={title}
+        topic={topic}
+        writer={writer}
+        parties={parties}
+        date={date}
+        meeting_date={meeting_date}
+        summary={summary}
+        keyword={keyword}
+      />
+    ).toBlob();
+    saveAs(blob, `회의록-${date}.pdf`);
+  };
   return (
-    <PDFDownloadLink
-      document={
-        <Pdf
-          title={title}
-          topic={topic}
-          writer={writer}
-          parties={parties}
-          date={date}
-          meeting_date={meeting_date}
-          summary={summary}
-          keyword={keyword}
-        />
-      }
-      fileName={`회의록-${date}.pdf`}
-    >
-      {({ blob, url, loading, error }) =>
-        loading ? "Loading document..." : "Download now!"
-      }
-    </PDFDownloadLink>
+    <div>
+      <Button
+        text="PDF 다운로드"
+        color="transparent"
+        onClick={generatePdfDocument}
+      />
+    </div>
   );
 };
 
